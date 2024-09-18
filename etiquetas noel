@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class EtiquetasDeNoel {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leitura do número de traduções
+        int n = scanner.nextInt();
+        scanner.nextLine(); // Consumir a quebra de linha após o inteiro
+
+        // Arrays para armazenar idiomas e suas traduções
+        String[] idiomas = new String[n];
+        String[] traducoes = new String[n];
+
+        // Leitura das traduções
+        for (int i = 0; i < n; i++) {
+            idiomas[i] = scanner.nextLine();
+            traducoes[i] = scanner.nextLine();
+        }
+
+        // Leitura do número de crianças
+        int m = scanner.nextInt();
+        scanner.nextLine(); // Consumir a quebra de linha após o inteiro
+
+        // Processar as etiquetas para cada criança
+        for (int i = 0; i < m; i++) {
+            String nome = scanner.nextLine();
+            String idioma = scanner.nextLine();
+
+            // Encontrar a tradução correspondente
+            String saudacao= null;
+            for (int j = 0; j < n; j++) {
+                if (idiomas[j].equals(idioma)) {
+                    saudacao = traducoes[j];
+                    break;
+                }
+            }
+
+            // Imprimir a etiqueta
+            System.out.println(nome);
+            System.out.println(saudacao);
+            System.out.println("tricolo"); // Linha em branco
+        }
+
+        scanner.close();
+    }
+}
